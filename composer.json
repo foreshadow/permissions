@@ -1,18 +1,15 @@
 {
-  "name": "ultraware/roles",
+  "name": "wbb/permissions",
   "description": "Powerful package for handling roles and permissions in Laravel 5.",
   "keywords": [
     "roles",
     "permissions",
-    "acl",
-    "auth",
-    "laravel",
-    "illuminate"
+    "laravel"
   ],
   "license": "MIT",
   "authors": [
     {
-      "name": "Ultraware"
+      "name": "wbb(a.k.a. foreshadow @ github)"
     }
   ],
   "require": {
