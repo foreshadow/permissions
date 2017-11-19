@@ -1,11 +1,11 @@
 <?php
 
-namespace Ultraware\Roles\Middleware;
+namespace Wbb\Permissions\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
-use Ultraware\Roles\Exceptions\LevelDeniedException;
+use Wbb\Permissions\Exceptions\LevelDeniedException;
 
 class VerifyLevel
 {
@@ -31,7 +31,7 @@ class VerifyLevel
      * @param \Closure $next
      * @param int $level
      * @return mixed
-     * @throws \Ultraware\Roles\Exceptions\LevelDeniedException
+     * @throws \Wbb\Permissions\Exceptions\LevelDeniedException
      */
     public function handle($request, Closure $next, $level)
     {

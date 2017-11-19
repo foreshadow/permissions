@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Ultraware\Roles\Traits\HasRoleAndPermission;
+use Wbb\Permissions\Traits\HasRoleAndPermission;
 
 class User extends Model
 {

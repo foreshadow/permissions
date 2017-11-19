@@ -1,6 +1,6 @@
 <?php
 
-namespace Ultraware\Roles\Traits;
+namespace Wbb\Permissions\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
-use Ultraware\Roles\Models\Permission;
-use Ultraware\Roles\Models\Role;
+use Wbb\Permissions\Models\Permission;
+use Wbb\Permissions\Models\Role;
 
 trait HasRoleAndPermission
 {
+    use Wbb\Permissions\Traits\HasRoleAndPermissionExtension;
+
     /**
      * Property for caching roles.
      *
@@ -157,7 +159,7 @@ trait HasRoleAndPermission
     /**
      * Sync roles for a user.
      *
-     * @param array|\Ultraware\Roles\Models\Role[]|\Illuminate\Database\Eloquent\Collection $roles
+     * @param array|\Wbb\Permissions\Models\Role[]|\Illuminate\Database\Eloquent\Collection $roles
      * @return array
      */
     public function syncRoles($roles)
@@ -371,7 +373,7 @@ trait HasRoleAndPermission
     /**
      * Sync permissions for a user.
      *
-     * @param array|\Ultraware\Roles\Models\Permission[]|\Illuminate\Database\Eloquent\Collection $permissions
+     * @param array|\Wbb\Permissions\Models\Permission[]|\Illuminate\Database\Eloquent\Collection $permissions
      * @return array
      */
     public function syncPermissions($permissions)

@@ -1,11 +1,11 @@
 <?php
 
-namespace Ultraware\Roles\Models;
+namespace Wbb\Permissions\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Ultraware\Roles\Contracts\PermissionHasRelations as PermissionHasRelationsContract;
-use Ultraware\Roles\Traits\PermissionHasRelations;
-use Ultraware\Roles\Traits\Slugable;
+use Wbb\Permissions\Contracts\PermissionHasRelations as PermissionHasRelationsContract;
+use Wbb\Permissions\Traits\PermissionHasRelations;
+use Wbb\Permissions\Traits\Slugable;
 
 class Permission extends Model implements PermissionHasRelationsContract
 {

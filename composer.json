@@ -18,7 +18,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Ultraware\\Roles\\": "src/"
+      "Wbb\\Permissions\\": "src/"
     }
   },
   "require-dev": {

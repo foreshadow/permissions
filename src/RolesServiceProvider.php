@@ -1,6 +1,6 @@
 <?php
 
-namespace Ultraware\Roles;
+namespace Wbb\Permissions;
 
 use Illuminate\Support\ServiceProvider;
 

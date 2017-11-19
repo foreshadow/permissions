@@ -55,7 +55,7 @@ Add the package to your application service providers in `config/app.php` file.
     /**
      * Third Party Service Providers...
      */
-    Ultraware\Roles\RolesServiceProvider::class,
+    Wbb\Permissions\RolesServiceProvider::class,
 
 ],
 ```
@@ -64,8 +64,8 @@ Add the package to your application service providers in `config/app.php` file.
 
 Publish the package config file and migrations to your application. Run these commands inside your terminal.
 
-    php artisan vendor:publish --provider="Ultraware\Roles\RolesServiceProvider" --tag=config
-    php artisan vendor:publish --provider="Ultraware\Roles\RolesServiceProvider" --tag=migrations
+    php artisan vendor:publish --provider="Wbb\Permissions\RolesServiceProvider" --tag=config
+    php artisan vendor:publish --provider="Wbb\Permissions\RolesServiceProvider" --tag=migrations
 
 And also run migrations.
 
@@ -87,7 +87,7 @@ If you migrate from bican/roles to ultraware/roles yoe need to update a few thin
 ### Creating Roles
 
 ```php
-use Ultraware\Roles\Models\Role;
+use Wbb\Permissions\Models\Role;
 
 $adminRole = Role::create([
     'name' => 'Admin',
@@ -180,7 +180,7 @@ if ($user->level() > 4) {
 It's very simple thanks to `Permission` model.
 
 ```php
-use Ultraware\Roles\Models\Permission;
+use Wbb\Permissions\Models\Permission;
 
 $createUsersPermission = Permission::create([
     'name' => 'Create users',
@@ -200,7 +200,7 @@ You can attach permissions to a role or directly to a specific user (and of cour
 
 ```php
 use App\User;
-use Ultraware\Roles\Models\Role;
+use Wbb\Permissions\Models\Role;
 
 $role = Role::find($roleId);
 $role->attachPermission($createUsersPermission); // permission attached to a role
@@ -249,7 +249,7 @@ Let's say you have an article and you want to edit it. This article belongs to a
 
 ```php
 use App\Article;
-use Ultraware\Roles\Models\Permission;
+use Wbb\Permissions\Models\Permission;
 
 $editArticlesPermission = Permission::create([
     'name' => 'Edit articles',
@@ -316,9 +316,9 @@ protected $routeMiddleware = [
     'auth' => \App\Http\Middleware\Authenticate::class,
     'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
     'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-    'role' => \Ultraware\Roles\Middleware\VerifyRole::class,
-    'permission' => \Ultraware\Roles\Middleware\VerifyPermission::class,
-    'level' => \Ultraware\Roles\Middleware\VerifyLevel::class,
+    'role' => \Wbb\Permissions\Middleware\VerifyRole::class,
+    'permission' => \Wbb\Permissions\Middleware\VerifyPermission::class,
+    'level' => \Wbb\Permissions\Middleware\VerifyLevel::class,
 ];
 ```
 
@@ -344,7 +344,7 @@ $router->get('/example', [
 ]);
 ```
 
-It throws `\Ultraware\Roles\Exceptions\RoleDeniedException`, `\Ultraware\Roles\Exceptions\PermissionDeniedException` or `\Ultraware\Roles\Exceptions\LevelDeniedException` exceptions if it goes wrong.
+It throws `\Wbb\Permissions\Exceptions\RoleDeniedException`, `\Wbb\Permissions\Exceptions\PermissionDeniedException` or `\Wbb\Permissions\Exceptions\LevelDeniedException` exceptions if it goes wrong.
 
 You can catch these exceptions inside `app/Exceptions/Handler.php` file and do whatever you want.
 
@@ -358,7 +358,7 @@ You can catch these exceptions inside `app/Exceptions/Handler.php` file and do w
  */
 public function render($request, Exception $e)
 {
-    if ($e instanceof \Ultraware\Roles\Exceptions\RoleDeniedException) {
+    if ($e instanceof \Wbb\Permissions\Exceptions\RoleDeniedException) {
         // you can for example flash message, redirect...
         return redirect()->back();
     }

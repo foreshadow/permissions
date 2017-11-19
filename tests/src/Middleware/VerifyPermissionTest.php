@@ -3,8 +3,8 @@
 use App\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
-use Ultraware\Roles\Exceptions\PermissionDeniedException;
-use Ultraware\Roles\Middleware\VerifyPermission;
+use Wbb\Permissions\Exceptions\PermissionDeniedException;
+use Wbb\Permissions\Middleware\VerifyPermission;
 
 class VerifyPermissionTest extends TestCase
 {

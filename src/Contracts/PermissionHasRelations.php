@@ -1,6 +1,6 @@
 <?php
 
-namespace Ultraware\Roles\Contracts;
+namespace Wbb\Permissions\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 

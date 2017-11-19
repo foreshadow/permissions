@@ -2,8 +2,8 @@
 
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
-use Ultraware\Roles\Exceptions\RoleDeniedException;
-use Ultraware\Roles\Middleware\VerifyRole;
+use Wbb\Permissions\Exceptions\RoleDeniedException;
+use Wbb\Permissions\Middleware\VerifyRole;
 
 class VerifyRoleTest extends TestCase
 {

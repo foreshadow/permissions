@@ -1,6 +1,6 @@
 <?php
 
-namespace Ultraware\Roles\Exceptions;
+namespace Wbb\Permissions\Exceptions;
 
 class PermissionDeniedException extends AccessDeniedException
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Ultraware\Roles\Middleware;
+namespace Wbb\Permissions\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
-use Ultraware\Roles\Exceptions\RoleDeniedException;
+use Wbb\Permissions\Exceptions\RoleDeniedException;
 
 class VerifyRole
 {
