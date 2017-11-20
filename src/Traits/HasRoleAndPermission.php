@@ -13,7 +13,7 @@ use Wbb\Permissions\Models\Role;
 
 trait HasRoleAndPermission
 {
-    use Wbb\Permissions\Traits\HasRoleAndPermissionExtension;
+    use HasRoleAndPermissionExtension;
 
     /**
      * Property for caching roles.
