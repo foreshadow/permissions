@@ -2,6 +2,8 @@
 
 namespace Wbb\Permissions\Traits;
 
+use DB;
+
 trait HasRoleAndPermissionExtension {
 
     public function is($role)
@@ -16,9 +18,11 @@ trait HasRoleAndPermissionExtension {
 
     public function attachOrCreatePermission($permission, $name = null)
     {
-        if (!DB::table('permissions')->where(is_int($permission) ? 'id' : 'slug', $permission)->first()) {
+        $p = DB::table('permissions')->where(is_int($permission) ? 'id' : 'slug', $permission)->first();
+        if (!$p) {
             DB::table('permissions')->insert(['name' => $name ?? $permission, 'slug' => $permission]);
+            $p = DB::table('permissions')->where(is_int($permission) ? 'id' : 'slug', $permission)->first();
         }
-        return $this->attachPermission($permission);
+        return $this->attachPermission($p->id);
     }
 }
